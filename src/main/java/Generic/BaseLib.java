@@ -13,18 +13,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-
 
 public class BaseLib {
 	
@@ -48,7 +43,10 @@ public class BaseLib {
     	reports.setSystemInfo("Environment", "QA");
     	reports.attachReporter(htmlReporter);
     }
-    
+
+
+
+
 	@BeforeMethod
 	@Parameters(value = "browser")
 	public void preCondition(String browser, Method method) throws InterruptedException {

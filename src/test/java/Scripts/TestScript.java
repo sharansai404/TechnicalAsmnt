@@ -2,6 +2,7 @@ package Scripts;
 
 import Generic.CommonLib;
 import com.aventstack.extentreports.Status;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Generic.BaseLib;
@@ -11,8 +12,6 @@ import pom.HomePage;
 import pom.ProductPage;
 
 public class TestScript extends BaseLib{
-
-
 	@Test
 	public void verifyMandatoryField() {
 		HomePage hp = new HomePage(driver);
@@ -27,6 +26,7 @@ public class TestScript extends BaseLib{
 		HomePage hp = new HomePage(driver);
 		ContactPage cp = new ContactPage(driver);
 		hp.clickOnContact();
+		cp.enterValueCheckMessage();
 		cp.submitContact();
 		cp.validateSuccessMessage();
 	}

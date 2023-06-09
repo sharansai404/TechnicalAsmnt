@@ -32,19 +32,33 @@ public class CommonLib {
 				Reporter.log(ExpResult);
 		}
 
-		public void validateElementPresent(WebElement element){
+		public boolean validateElementNotPresent(WebElement element){
 			try{
-				if(element.isDisplayed()){
-//					testinfo.log(Status.FAIL,"Message is still there");
+				if(!element.isDisplayed()){
+//					testinfo.log(Status.FAIL,"Message is not there");
 				}
 				else {
-//					testinfo.log(Status.INFO,"Message is not there");
+//					testinfo.log(Status.INFO,"Message is still there");
+					return false;
 				}
-
-			}catch (Exception e){
-
+			}catch (Exception e) {
 			}
+			return true;
 		}
+
+	public boolean validateElementPresent(WebElement element){
+		try{
+			if(element.isDisplayed()){
+//					testinfo.log(Status.FAIL,"Message is not there");
+			}
+			else {
+//					testinfo.log(Status.INFO,"Message is still there");
+				return false;
+			}
+		}catch (Exception e) {
+		}
+		return true;
+	}
 
 
 
